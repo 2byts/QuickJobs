@@ -18,8 +18,44 @@ router = Router()
 logger = logging.getLogger(__name__)
 db = CSVDatabase()
 
-first_names = ["Rahim", "Karim", "Hasan", "Jahid", "Amina", "Fatema", "Rumana"]
-last_names = ["Khan", "Ahmed", "Islam"]
+first_names = [
+    "Rahim", "Karim", "Hasan", "Jahid", "Amina", "Fatema", "Rumana", "Sajjad", "Rafi", "Tania", "Nusrat",
+    "Fahim", "Samiul", "Rakib", "Sabbir", "Sadia", "Jannat", "Mizan", "Kawsar", "Sumaiya", "Sultana",
+    "Shuvo", "Munna", "Shanto", "Naim", "Sakib", "Morshed", "Nishat", "Shohag", "Masud", "Sumon",
+    "Jubayer", "Farzana", "Mim", "Nabila", "Shahriar", "Emon", "Niloy", "Tushar", "Zahid", "Mahfuz",
+    "Afsana", "Tanjila", "Rabbi", "Tuhin", "Mehedi", "Tamim", "Nafisa", "Rafsan", "Arafat", "Imran",
+    "Asif", "Towhid", "Ovi", "Rasel", "Rasel", "Sohan", "Rayhan", "Sohanur", "Shamim", "Shohel", "Shams",
+    "Tariq", "Ridoy", "Shakil", "Nadim", "Sifat", "Salman", "Arif", "Ifty", "Shanto", "Yasin", "Sadi",
+    "Arman", "Tariqul", "Hridoy", "Faisal", "Iftekhar", "Tanzim", "Omar", "Hamid", "Mahmud", "Wasim",
+    "Shorif", "Alif", "Mahi", "Rana", "Kamal", "Shimul", "Anik", "Noman", "Hasib", "Nayem", "Samin",
+    "Oishi", "Priya", "Lamia", "Aklima", "Rokeya", "Mahira", "Farhana", "Shamima", "Nusrat", "Maliha",
+    "Tonni", "Riya", "Nishi", "Mim", "Tumpa", "Nargis", "Keya", "Nodi", "Brishti", "Nabila", "Shila",
+    "Rokhshana", "Parvin", "Nasima", "Marufa", "Jerin", "Sharmin", "Minu", "Rumana", "Sanjida", "Shormi",
+    "Mouri", "Lima", "Shathi", "Jui", "Sinthia", "Rokhshana", "Faria", "Sadia", "Moumita", "Ritika",
+    "Zannat", "Sumaiya", "Anamika", "Trisha", "Sanjana", "Farzana", "Afia", "Jerin", "Afsara", "Afrin",
+    "Nusrat", "Tarannum", "Tamanna", "Ishrat", "Tahiya", "Anika", "Lubna", "Sadia", "Maliha", "Shamima",
+    "Bushra", "Ahona", "Rupkotha", "Pranto", "Pavel", "Ehsan", "Rafiul", "Ruhul", "Abir", "Nafis",
+    "Ishmam", "Noman", "Adib", "Tanvir", "Sajib", "Farhan", "Zunayed", "Tasin", "Tawhid", "Jayed",
+    "Touhid", "Emon", "Saklain", "Ashik", "Sohanur", "Shahriar", "Omar", "Tanjim", "Mamun", "Helal",
+    "Badhon", "Rasel", "Shamol", "Ripon", "Milton", "Badsha", "Nazmul", "Habib", "Khairul", "Latif",
+    "Barkat", "Wahid", "Hossen", "Rubel", "Masum", "Selim", "Mokhles", "Motaleb", "Mobarak", "Sabuj",
+    "Bokul", "Liton", "Zubair", "Zakir", "Azad", "Ruhul", "Manik", "Kabir", "Basir", "Mostafizur", "Lutfar",
+    "Noor", "Shawon", "Aminul", "Anamul", "Rasel", "Saddam", "Habibur", "Kamrul", "Shamim", "Ashraful"
+]
+
+last_names = [
+    "Khan", "Ahmed", "Islam", "Rahman", "Hasan", "Hossain", "Uddin", "Chowdhury", "Mollah", "Biswas",
+    "Sarkar", "Mia", "Mian", "Bhuiyan", "Talukder", "Siddique", "Kabir", "Azad", "Rashid", "Karim",
+    "Alam", "Mahmud", "Kamal", "Salam", "Mazumder", "Bhuiya", "Shikder", "Patwary", "Howlader", "Faruk",
+    "Munshi", "Naser", "Shaikh", "Sharif", "Morshed", "Bokshi", "Hasnat", "Mostafa", "Haque", "Halder",
+    "Rana", "Nabi", "Babu", "Sabbir", "Ahsan", "Mallick", "Tarek", "Sobhan", "Zaman", "Shuvo",
+    "Rafique", "Mujib", "Sumon", "Saif", "Naim", "Raihan", "Tanim", "Shakil", "Siddiq", "Jahan",
+    "Amin", "Bashar", "Mahfuz", "Sohag", "Rasel", "Kawsar", "Khokon", "Fahad", "Towhid", "Rayhan",
+    "Mehedi", "Shanto", "Imran", "Babu", "Sajib", "Jamal", "Monir", "Tuhin", "Tanvir", "Ovi",
+    "Raihan", "Tushar", "Niloy", "Biplob", "Jubayer", "Sagar", "Rafsan", "Arafat", "Sohail", "Noman",
+    "Anik", "Rakib", "Sohan", "Mahi", "Shamim", "Masum", "Rubel", "Saddam", "Mamun", "Faisal"
+]
+
 
 def generate_password() -> str:
     return ''.join(random.choices(string.ascii_lowercase, k=6)) + time.strftime('%d')
