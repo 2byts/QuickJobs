@@ -236,13 +236,15 @@ async def handle_webmail(message: types.Message, state: FSMContext):
 
     fb_id = reg_data.get("facebook_id")
     if fb_id:
-        db.add_hold_balance_for_facebook_id(user_id, fb_id, 0.40)
+        db.add_hold_balance_for_facebook_id(user_id, fb_id, 0.50)  # updated to $0.50
         hold = db.get_hold_balance_for_facebook_id(user_id, fb_id)
     else:
         hold = 0.0
 
     await message.reply(
-        f"✅ Webmail `{email}` saved.\n<b>{fb_id or 'N/A'}</b>\n______________________________\n<b>${hold:.2f}</b> credited to hold.\n\n📛 Add 30 friends and logout.",
+        f"✅ Webmail `{email}` saved.\n<b>{fb_id or 'N/A'}</b>\n"
+        f"______________________________\n<b>${hold:.2f}</b> credited to hold.\n\n"
+        "📛 Add 30 friends and logout.",
         parse_mode="HTML"
     )
     await notify_admin_about_account(user_id, reg_data)
