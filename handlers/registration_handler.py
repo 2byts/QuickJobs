@@ -236,7 +236,7 @@ async def handle_webmail(message: types.Message, state: FSMContext):
 
     fb_id = reg_data.get("facebook_id")
     if fb_id:
-        db.add_hold_balance_for_facebook_id(user_id, fb_id, 2.00)
+        db.add_hold_balance_for_facebook_id(user_id, fb_id, 0.40)
         hold = db.get_hold_balance_for_facebook_id(user_id, fb_id)
     else:
         hold = 0.0
